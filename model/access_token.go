@@ -50,7 +50,7 @@ func (a *AccessToken) GetAccessToken() string {
 func NewAccessToken() *AccessToken {
 	return &AccessToken{
 		accessToken: "",
-		expiredAt:   nil,
+		expiredAt:   time.Now().Add(-1*time.Second),
 		locker:      new(sync.RWMutex),
 	}
 }
