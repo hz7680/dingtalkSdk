@@ -19,7 +19,7 @@ type AccessToken struct {
 }
 
 func (a *AccessToken) IsExpired() bool {
-	return a.accessToken != "" && a.expiredAt.Unix()-100 > time.Now().Unix()
+	return a.accessToken == "" || a.expiredAt.Unix()-100 > time.Now().Unix()
 }
 
 func (a *AccessToken) RLock() {
